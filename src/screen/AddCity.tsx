@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA } from '../data/stub';
+import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 
-export default function Meteo() {
+export default function AddCity() {
 
     const [meteo, setMeteo] = useState("Meteo");
-    const [city, setCity] = useState<City>(new City("Paris", 48.856614, 2.3522219));
+    const [city, setCity] = useState<City>(new City("Marseille", 48.856614, 2.3522219));
 
 
     return (
@@ -13,9 +13,10 @@ export default function Meteo() {
             <Text>{city.name}</Text>
             <Text>{city.latitude}</Text>
             <Text>{city.longitude}</Text>
-            <Button title="Meteo" onPress={() => setMeteo("Meteo")} />
+            <Button title="Meteo" onPress={() => getCurrentWeather("Marseille")} />
         </View>
     );
+
 }
 
 const styles = StyleSheet.create({
@@ -26,3 +27,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
+    
+    
