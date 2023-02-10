@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Button, StyleSheet, Text, View } from 'react-native';
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
+import CityListItem from '../components/CityListItem';
 
 export default function AddCity() {
 
@@ -10,10 +11,8 @@ export default function AddCity() {
 
     return (
         <View style={styles.container}>
-            <Text>{city.name}</Text>
-            <Text>{city.latitude}</Text>
-            <Text>{city.longitude}</Text>
-            <Button title="Meteo" onPress={() => getCurrentWeather("Marseille")} />
+            <FlatList data={CITIES_DATA} renderItem={CityListItem}
+                keyExtractor={(item: City) => item.name}/>
         </View>
     );
 

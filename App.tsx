@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Meteo from './src/screen/Meteo';
 import NavBar from './src/components/NavBar';
 
-import MainTab from './src/navigator/navigator';
+import MainTab from './src/navigator/Navigator.tsx';
 
 export default function App() {
   return (
