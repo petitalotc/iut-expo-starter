@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 
 export default function Meteo() {
@@ -10,6 +10,7 @@ export default function Meteo() {
 
     return (
         <View style={styles.container}>
+            <SafeAreaView/>
             <Text>{city.name}</Text>
             <Text>{city.latitude}</Text>
             <Text>{city.longitude}</Text>

@@ -12,7 +12,7 @@ export default function MainTab(){
     return (
         <NavigationContainer>
             <Tab.Navigator
-            initialRouteName="Meteo"
+            initialRouteName="Home"
             screenOptions={{headerShown : false}}>
                 <Tab.Screen name="Home" component={DetailMeteo}
                                            options={{

@@ -1,30 +1,38 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
+import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather, WEATHER_DATA } from '../../data/stub';
+import WidgetMeteo from '../components/WidgetMeteo';
 
 export default function DetailMeteo() {
-/*
-    const [meteo, setMeteo] = useState("Meteo");
-    const [city, setCity] = useState<City>(new City("Paris", 48.856614, 2.3522219));
-*/
-    const [weather, setWeather] = useState<Weather>(new Weather("2023-01-22 09:55:59", 10000, "Nuageux","couvert", 0.52, -4.34,82, 5.14, 1032,new City("Paris", 48.866667, 2.333333)))
+
+    //City
+    const [meteo, setMeteo] = useState<Weather>(new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
+    "couvert", 20, -4.34,
+    82, 5.14, 1032,
+    new City("Paris", 48.866667, 2.333333)
+  ));
+    
     return (
-        <View style={styles.container}>
-            <Text>{weather.temperature}</Text>
-            <Text>{weather.humidity}</Text>
-            <Text>{weather.windspeed}</Text>
-        </View>
-    );
+      <View style={styles.container}>
+        
+          <FlatList style={styles.flatList} data={WEATHER_DATA} renderItem={WidgetMeteo}></FlatList>
+      
+        
+      </View>
+    )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
-});
+    flatList: {
+        flex: 1,
+        flexDirection: "column",
+        flexWrap: "wrap",
+    },
+  }
+);
 
 /*
 new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
