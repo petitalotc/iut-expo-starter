@@ -6,10 +6,6 @@ import OptionComponent from '../components/OptionComponent';
 
 export default function Settings() {
 
-    const [meteo, setMeteo] = useState("Meteo");
-    const [city, setCity] = useState<City>(new City("Paris", 48.856614, 2.3522219));
-
-
     return (
         <View style={styles.container}>
             <SafeAreaView/>
@@ -18,12 +14,17 @@ export default function Settings() {
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 0,
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        paddingTop: 20,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        marginTop: 20,
+        width: '90%',
+        padding: 10,
+        borderRadius: 10,
     },
 });

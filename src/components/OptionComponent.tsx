@@ -11,20 +11,58 @@ type OptionComponentProps = {
 }
 
 export default function OptionComponent(props: OptionComponentProps) {
-    const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [isDarkTheme, setIsDarkTheme] = useState(false);
+    const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+    if (isDarkTheme) {
+        return (
+            <View style={styleDark.container}>
+                <Text style={styleDark.text}>{props.nameOption}</Text>
+                <Switch trackColor={{ false: '#767577' }}
+                    onValueChange={toggleSwitch}
+                    value={isDarkTheme}></Switch>
+    
+            </View>
+        )
+    }
     return (
         <>
             <View style={styles.container}>
                 <Text style={styles.text}>{props.nameOption}</Text>
-                <Switch trackColor={{ false: '#767577' }}    
+                <Switch trackColor={{ false: '#767577' }}
                     onValueChange={toggleSwitch}
-                    value={isEnabled}></Switch>
+                    value={isDarkTheme}></Switch>
+
             </View>
+            <View style={styles.separator} />
+
         </>
 
     )
 }
+
+const styleDark = StyleSheet.create({
+    container: {
+        flex: 0,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        width: '80%',
+        backgroundColor: 'black',
+    },
+    separator: {
+        marginVertical: 4,
+        backgroundColor: "rgba(223,223,223,1)",
+        height: 1,
+        width: '90%',
+    },
+    text: {
+        fontWeight: "bold",
+        color: "white",
+        margin: 10,
+        width: '100%',
+    },
+});
+
 
 const styles = StyleSheet.create({
     container: {
@@ -39,10 +77,6 @@ const styles = StyleSheet.create({
         backgroundColor: "rgba(223,223,223,1)",
         height: 1,
         width: '90%',
-    },
-    teaserImage: {
-        width: 50,
-        height: 50,
     },
     text: {
         fontWeight: "bold",
