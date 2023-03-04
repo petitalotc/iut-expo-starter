@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather, WEATHER_DATA } from '../../data/stub';
 import WidgetMeteo from '../components/WidgetMeteo';
 
@@ -13,23 +13,31 @@ export default function DetailMeteo() {
   ));
     
     return (
-      <View style={styles.container}>
+
+      <>
         
-          <FlatList style={styles.flatList} data={WEATHER_DATA} renderItem={WidgetMeteo}></FlatList>
+        <FlatList style={styles.flatList} data={WEATHER_DATA} renderItem={WidgetMeteo} numColumns={2}></FlatList>
       
         
-      </View>
+      </>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: '100%',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+      
     },
     flatList: {
-        flex: 1,
-        flexDirection: "column",
-        flexWrap: "wrap",
+        flex: 2,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+
     },
   }
 );

@@ -8,22 +8,33 @@ import Meteo from "../screen/Meteo";
 import AddCity from "../screen/AddCity";
 const Tab = createBottomTabNavigator();
 
-export default function MainTab(){
+export default function MainTab() {
     return (
         <NavigationContainer>
             <Tab.Navigator
-            initialRouteName="Home"
-            screenOptions={{headerShown : false}}>
+                initialRouteName="Home"
+                screenOptions={{ headerShown: false }}>
                 <Tab.Screen name="Home" component={DetailMeteo}
-                                           options={{
-                                               title: 'Home',
-                                               tabBarIcon: ({color}) => <TabBarIcon name="home" color="black"/>
-                                           }}/>
+                    options={{
+                        title: 'Home',
+                        tabBarIcon: ({ color }) => <TabBarIcon name="home" color="black" />
+                    }} />
+                <Tab.Screen name="Favoris" component={DetailMeteo}
+                    options={{
+                        title: 'Favoris',
+                        tabBarIcon: ({ color }) => <TabBarIcon name="heart" color="black" />
+                    }} />
                 <Tab.Screen name="AddCity" component={AddCity}
-                                           options={{
-                                               title: 'Add',
-                                               tabBarIcon: ({color}) => <FontAwesome name="plus" size={24} color="black" />,
-                                            }}/>
+                    options={{
+                        title: 'Add',
+                        tabBarIcon: ({ color }) => <FontAwesome name="plus" size={24} color="black" />,
+                    }} />
+                <Tab.Screen name="Settings" component={Meteo}
+                    options={{
+                        title: 'Settings',
+                        tabBarIcon: ({ color }) => <TabBarIcon name="cog" color="black" />
+                    }} />
+
             </Tab.Navigator>
         </NavigationContainer>
     )
