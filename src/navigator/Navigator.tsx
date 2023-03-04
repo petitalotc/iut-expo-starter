@@ -6,6 +6,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import DetailMeteo from "../screen/DetailMeteo";
 import Meteo from "../screen/Meteo";
 import AddCity from "../screen/AddCity";
+import Settings from "../screen/Settings";
 const Tab = createBottomTabNavigator();
 
 export default function MainTab() {
@@ -29,7 +30,7 @@ export default function MainTab() {
                         title: 'Add',
                         tabBarIcon: ({ color }) => <FontAwesome name="plus" size={24} color="black" />,
                     }} />
-                <Tab.Screen name="Settings" component={Meteo}
+                <Tab.Screen name="Settings" component={Settings}
                     options={{
                         title: 'Settings',
                         tabBarIcon: ({ color }) => <TabBarIcon name="cog" color="black" />

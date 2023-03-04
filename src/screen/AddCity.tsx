@@ -13,14 +13,14 @@ export default function AddCity() {
     return (
         <View style={styles.container}>
             <View style={styles.searchBar}>
-            <Image source={require("../../assets/magnifyingglass.png")} style={styles.imageLoupe}></Image>
+                <Image source={require("../../assets/magnifyingglass.png")} style={styles.imageLoupe}></Image>
 
                 <TextInput style={styles.textInput} placeholder="Search">
                 </TextInput>
             </View>
-            
+
             <FlatList data={CITIES_DATA} renderItem={CityListItem}
-                keyExtractor={(item: City) => item.name}/>
+                keyExtractor={(item: City) => item.name} />
         </View>
     );
 
@@ -29,31 +29,30 @@ export default function AddCity() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgba(223,223,223,0.3)',
-        alignItems: 'center',
         justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10,
     },
     textInput: {
-        height: 40,
-        borderColor: 'gray',
-        borderRadius: 10,
-        borderWidth: 1,
-        width: "90%",
-        margin: 10
-        
+        width: "90%"
+
     },
     searchBar: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: 50,
-        backgroundColor: "rgba(255,255,255,0.3)",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 0.5,
+        borderColor: '#000',
+        height: 40,
+        borderRadius: 10,
+        margin: 10,
     },
     imageLoupe: {
-        width: 20,
-        height: 20,
-        margin: 10
+        padding: 10,
+        margin: 5,
+        height: 15,
+        width: 15,
+        resizeMode: 'stretch',
+        alignItems: 'center',
     }
 });
-    

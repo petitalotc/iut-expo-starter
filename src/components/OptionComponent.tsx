@@ -1,22 +1,26 @@
 //item for meteo in list
 
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Switch } from 'react-native';
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 
-type CityListItemProps = {
-    item: City;
+type OptionComponentProps = {
+    nameOption: String;
 }
 
-export default function CityListItem(props: CityListItemProps) {
+export default function OptionComponent(props: OptionComponentProps) {
+    const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <>
             <View style={styles.container}>
-
-                <Text style={styles.text}>{props.item.name}</Text>
+                <Text style={styles.text}>{props.nameOption}</Text>
+                <Switch trackColor={{ false: '#767577' }}    
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}></Switch>
             </View>
-            <View style={styles.separator} />
         </>
 
     )
@@ -26,9 +30,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 0,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
-        width: '100%',
+        width: '80%',
     },
     separator: {
         marginVertical: 4,
