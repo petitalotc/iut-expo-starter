@@ -4,12 +4,12 @@ import { FlatList, Button, StyleSheet, Text, View, TextInput, Image } from 'reac
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 import CityListItem from '../components/CityListItem';
 
-export default function DetailCity() {
+export default function DetailCity({route}) {
 
-
+    const weather = route.params.weather;
     return (
         <View style={styles.container}>
-            <Text>Test</Text>
+            <Text>{weather.temperature}</Text>
         </View>
     );
 
