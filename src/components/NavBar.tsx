@@ -3,7 +3,7 @@ import { TabBarIOSItem, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import DetailMeteo from "../screen/DetailMeteo";
+import DetailMeteo from "../screen/HomePage";
 function HomeScreen() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
